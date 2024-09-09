@@ -1,4 +1,4 @@
-## h2 Animation 설정
+## 1 Animation 설정
 
 
 
@@ -14,7 +14,6 @@ public :
 
 ```
 **NativeInitializeAnimation()** 란 애니메이션 초기화를 담당하며,
-
 **NativeUpdateAnimation(float DeltaSeconds)** 란 애니메이션 매 업데이트를 담당한다.
 
 
@@ -34,6 +33,10 @@ protected :
 ```
 Animation Instance Class에는 애니메이션을 작동하기 위하여 필요한 상태 멤버 변수를 선언하였다.
 
-## h2 Animation Graph
+## 2 Animation Graph
 
 
+## 3 Blend Space
+입력 매개 변수를 기반으로 여러 개의 애니메이션을 블렌딩할 수 있도록 만들어준다. 그래프에서 샘플링하여 입력 값을 블렌딩 시켜준다.
+![alt text](../img/Unreal_Anim1.png)
+DX11에서 애니메이션 뼈대를 보간하기 위해서 꽤 애를 먹었는데 Frame 단위로 Animation을 대입해서 자동 보간이 참으로 직관적이고 편리하다.
