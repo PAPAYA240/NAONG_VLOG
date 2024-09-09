@@ -14,6 +14,7 @@ public :
 
 ```
 **NativeInitializeAnimation()** 란 애니메이션 초기화를 담당하며,
+
 **NativeUpdateAnimation(float DeltaSeconds)** 란 애니메이션 매 업데이트를 담당한다.
 
 
