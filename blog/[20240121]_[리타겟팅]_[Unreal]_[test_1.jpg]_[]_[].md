@@ -1,7 +1,13 @@
 # test1 제목입니다. 테스트 파일입니다.
 
-* hello world 1
+> 리타게팅
+> Animation Retargeting은 같은 스켈레톤 에셋을 공유하나 비율이 크게 다른 캐릭터 간의 애니메이션을 재사용할 수 있도록 해주는 기능이다.
 
-법관이 중대한 심신상의 장해로 직무를 수행할 수 없을 때에는 법률이 정하는 바에 의하여 퇴직하게 할 수 있다. 타인의 범죄행위로 인하여 생명·신체에 대한 피해를 받은 국민은 법률이 정하는 바에 의하여 국가로부터 구조를 받을 수 있다.
+*작동 원리
+Retargeting 시스템에서 타깃을 새로 잡는 것은 Bone의 Translate Component 뿐이다.
 
-행정권은 대통령을 수반으로 하는 정부에 속한다. 국가의 세입·세출의 결산, 국가 및 법률이 정한 단체의 회계검사와 행정기관 및 공무원의 직무에 관한 감찰을 하기 위하여 대통령 소속하에 감사원을 둔다.
+https://dev.epicgames.com/documentation/ko-kr/unreal-engine/animation-retargeting-in-unreal-engine?application_version=5.1
+
+IK_Rig를 통해 Retargeting 하고 있다. 
+PAPAYA240/NAONG_VLOG/img/user/스크린샷 2024-09-10 164946.png
+큰 틀에서 IK를 봤을 때 "리타겟 체인"이라는 것이 있는데 인위적으로 맵핑하여 이 체인을 참고하여 애니메이션을 변환하는 기능이 존재한다. 
