@@ -9,5 +9,5 @@ Retargeting 시스템에서 타깃을 새로 잡는 것은 Bone의 Translate Com
 https://dev.epicgames.com/documentation/ko-kr/unreal-engine/animation-retargeting-in-unreal-engine?application_version=5.1
 
 IK_Rig를 통해 Retargeting 하고 있다. 
-PAPAYA240/NAONG_VLOG/img/user/스크린샷 2024-09-10 164946.png
+![alt text](<../img/user/스크린샷 2024-09-10 164946.png>)
 큰 틀에서 IK를 봤을 때 "리타겟 체인"이라는 것이 있는데 인위적으로 맵핑하여 이 체인을 참고하여 애니메이션을 변환하는 기능이 존재한다. 
