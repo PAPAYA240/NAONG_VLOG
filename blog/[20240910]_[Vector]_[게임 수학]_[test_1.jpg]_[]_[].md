@@ -1,7 +1,69 @@
-# test1 제목입니다. 테스트 파일입니다.
+# Vector
 
-* hello world 1
+> 단위 벡터
+> Animation을 만드는데 필요한 데이터들을 모아두는 Class를 만들었다.
 
-법관이 중대한 심신상의 장해로 직무를 수행할 수 없을 때에는 법률이 정하는 바에 의하여 퇴직하게 할 수 있다. 타인의 범죄행위로 인하여 생명·신체에 대한 피해를 받은 국민은 법률이 정하는 바에 의하여 국가로부터 구조를 받을 수 있다.
+> 방향 벡터
+> Animation을 만드는데 필요한 데이터들을 모아두는 Class를 만들었다.
 
-행정권은 대통령을 수반으로 하는 정부에 속한다. 국가의 세입·세출의 결산, 국가 및 법률이 정한 단체의 회계검사와 행정기관 및 공무원의 직무에 관한 감찰을 하기 위하여 대통령 소속하에 감사원을 둔다.
+# Vector 응용
+```cpp
+void AMyGameModeBase::BeginPlay()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		APawn* defaultPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+		FVector vPawnLoc = defaultPawn->GetActorLocation();
+		FRotator vPawnRot = defaultPawn->GetActorRotation() + FRotator(0.f, m_fCurrent_SpawneeAngle, 0.f);
+		FVector vForwardVector = FRotationMatrix(vPawnRot).GetScaledAxis(EAxis::X);
+		FVector vFinalLoc = vPawnLoc + vForwardVector * 1000.f;
+
+		AMySpawnee* Spawnee1 = GetWorld()->SpawnActor<AMySpawnee>(AMySpawnee::StaticClass(), vFinalLoc, FRotator(0.f, 0.f, 0.f));
+		
+		m_fCurrent_SpawneeAngle += m_fSpawneeAngle;
+
+		if (360.f <= m_fCurrent_SpawneeAngle)
+			m_fCurrent_SpawneeAngle = 0.f;
+
+		Spawnee_Array.Add(Spawnee1);
+	}
+}
+
+void AMyGameModeBase::Tick(float DeltaTime)
+{
+	if (Spawnee_Array.Num() > 0)
+	{
+		if (nullptr == Spawnee_Array[m_iCurrentSpawnee])
+			return;
+
+		AMySpawnee* CurrentSpawnPos = Spawnee_Array[m_iCurrentSpawnee];
+
+		APawn* Player = GetWorld()->GetFirstPlayerController()->GetPawn();
+
+		FVector dir = CurrentSpawnPos->GetActorLocation() - Player->GetActorLocation();
+
+		FVector Direction = dir.GetSafeNormal(); // 방향 벡터
+
+		FVector NewLoc =	 Player->GetActorLocation() + (Direction * 500.f * DeltaTime);
+
+		Player->SetActorLocation(NewLoc);
+		Player->SetActorRotation(dir.Rotation());
+
+		if (FVector::Dist(NewLoc, Spawnee_Array[m_iCurrentSpawnee]->GetActorLocation()) < 10.f)
+		{
+			++m_iCurrentSpawnee;
+
+			if (Spawnee_Array.Num() <= m_iCurrentSpawnee)
+				m_iCurrentSpawnee = 0;
+
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("향하는 스폰 위치 [ %d ]"), m_iCurrentSpawnee));
+		}
+
+	}
+	else
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Failed Array"));
+}
+
+```
+
+# Vector의 외적과 내
