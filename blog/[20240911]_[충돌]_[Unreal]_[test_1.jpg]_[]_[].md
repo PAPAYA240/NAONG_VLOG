@@ -33,7 +33,7 @@ Collsion 기능을 사용하지 않을 때 적용한다.
 
 > Overlap 사용 시  GenerateOverlap Event(오버랩 이벤트 생성) 를 반드시 켜줘야 작동 된다.
 
-
+[20240911]_[충돌]_[Unreal]_[test_1.jpg]_[]_[]
 # 프로젝트 콜리전 환경 설정
 > Project Setting -> Engine -> Collision -> Object Channels
 
@@ -43,3 +43,4 @@ Collsion 기능을 사용하지 않을 때 적용한다.
 하지만 채널을 설정하고 새 채널은 프리셋 정보를 설정해줘야 한다.
 
 이 정보는 Project > Config 쪽 어딘가서 저장이 된다.
+
