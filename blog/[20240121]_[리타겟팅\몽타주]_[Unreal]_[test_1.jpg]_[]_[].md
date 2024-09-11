@@ -1,5 +1,4 @@
-# Retargeting
-
+# 애니메이션 Retargeting
 > Animation Retargeting은 같은 스켈레톤 에셋을 공유하나 비율이 크게 다른 캐릭터 간의 애니메이션을 재사용할 수 있도록 해주는 기능이다.
 
 *작동 원리
@@ -13,5 +12,9 @@ IK_Rig를 통해 Retargeting 하고 있다.
 
 # 사용하는 법
 Retargeting Animation을 만들기 전에 IK릭이라는 걸 먼저 만들어야 한다.
-> Animation -> Retargeting -> IK릭
+> **Animation -> Retargeting -> IK릭**
+
 후에 IK 리타겟팅을 통해 각 범위마다 체인을 추가해준다.
+
+# 애니메이션 몽타주
+> 정해진 순서에 따라 실행되는 애니메이션 조건에 맞게 재생한다. 콤보 Action과 같은 것이 예시가 될 수 있다.
